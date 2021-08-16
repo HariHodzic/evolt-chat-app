@@ -1,0 +1,36 @@
+﻿@page
+@using evolt_chat_app.Hubs
+@{ 
+    //var username = UsernameService.username;
+    string username = ViewBag.username;
+}
+<div id="chat-wrapper" class="col-12">
+    <div class="row justify-content-center">
+        <div id="messageBox" class="rounded col-md-9 col-12 mt-3">
+            <div class="col-12">
+                <h5 class="mt-2">
+                    Group chat</h5>
+                    <hr>
+                    <ul id="messagesList"></ul>
+            </div>
+        </div>
+        <div class="col-12">
+            <hr />
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">
+            <div class="col-4"><input type="text" id="userInput" value="@username" hidden /></div>
+        </div>
+        <div class="row col-12 justify-content-center">
+            <!-- <div class="col-12"> -->
+            <input class="rounded w-100 col-md-8 form-control" type="text" id="messageInput"/>
+            <!-- </div> -->
+            <div class="col-8 mt-3">
+                <input type="button" id="sendButton" class="col-sm-12" value="Send Message" />
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/chat.js"></script>

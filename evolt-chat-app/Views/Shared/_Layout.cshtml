@@ -1,0 +1,58 @@
+﻿@{ 
+    //var username = ChatHub.username;
+    string username = ViewBag.username;
+    List<string> connectedUsers = ViewBag.connectedUsers;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - evolt_chat_app</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    <header class="border-bottom box-shadow">
+        <div class="container-fluid">
+            <nav class=" navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white">
+                <div class="row">
+                    <div class="p-1 my-container active-cont">
+                        <a class="btn border-0" id="menu-btn">
+                            &#9776;
+                          </a>
+                    </div>
+                    <a class="navbar-brand" asp-area="" asp-page="/Index">Evolt | ChatApp</a>
+                     <a class="navbar-nav float-md-right">@username </a>
+                    </div>
+            </nav>
+        </div>
+    </header>
+    <div class="side-navbar d-flex justify-content-between flex-wrap flex-column" id="sidebar">
+        <ul class="nav flex-column text-white w-100" id="connectedUsers">
+            <a href="#" class="nav-link h3 text-white my-2">
+                Active users
+            </a>
+            @foreach (var item in connectedUsers)
+            {
+                <li href="#" class="nav-link">
+                    @*<span class="mx-2">@item</span>*@
+                    @item
+                </li>
+            }
+        </ul>
+      </div>
+    <div class="container-fluid">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
