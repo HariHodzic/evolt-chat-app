@@ -7,13 +7,10 @@ namespace Aiesec.Web.Controllers
 {
     public class HomeController : Controller
     {
-        //private HubLifetimeContext _context;
         public static string username { get; set; }
-        //IUsernameService _service;
         public HomeController()
         {
             username = UsernameService.SetUsername();
-            //_context = context;
         }
 
         public IActionResult Index()

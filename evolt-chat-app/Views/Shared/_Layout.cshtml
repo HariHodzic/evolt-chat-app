@@ -32,13 +32,12 @@
     </header>
     <div class="side-navbar d-flex justify-content-between flex-wrap flex-column" id="sidebar">
         <ul class="nav flex-column text-white w-100" id="connectedUsers">
-            <a href="#" class="nav-link h3 text-white my-2">
+            <a class="nav-link h3 text-white my-2">
                 Active users
             </a>
             @foreach (var item in connectedUsers)
             {
-                <li href="#" class="nav-link">
-                    @*<span class="mx-2">@item</span>*@
+                <li class="nav-link">
                     @item
                 </li>
             }

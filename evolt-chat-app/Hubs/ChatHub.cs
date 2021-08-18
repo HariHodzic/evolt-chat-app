@@ -25,8 +25,6 @@ namespace evolt_chat_app.Hubs
         public override async Task OnDisconnectedAsync(Exception ex)
         {
             await Clients.All.SendAsync("UserDisconnected", HomeController.username);
-            connectedUsers.Remove(HomeController.username);
-            //await Clients.All.SendAsync("UserDisconnected", Context.ConnectionId);
             await base.OnDisconnectedAsync(ex);
         }
     }
